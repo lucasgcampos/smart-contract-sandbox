@@ -3,11 +3,14 @@ A safe place to play with smart contract.
 
 ### Contracts
 
-#### [EtherUSD](https://sepolia.etherscan.io/address/0x5ecDF773A508262712A785C4233F3752bb9e7417)
+#### [1. EtherUSD](https://sepolia.etherscan.io/address/0x5ecDF773A508262712A785C4233F3752bb9e7417)
 The contract is a hands-on demo, demonstrating how you can blend blockchain with real-world info, like the ETH/USD value. Feel free to use the following command to interact with it:
 ```shell
 cast call --rpc-url $RPC_PROVIDER --private-key $PRIVATE_KEY 0x5ecDF773A508262712A785C4233F3752bb9e7417 "getEthValueInUsd()(uint256)"
 ```
+
+#### 2. Banking
+It's an example of a smart contract capable of both receiving and withdrawing tokens, essentially mimicking the basic functionalities of a bank.
 
 ## Foundry
 
