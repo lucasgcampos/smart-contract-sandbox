@@ -9,17 +9,17 @@ The contract is a hands-on demo, demonstrating how you can blend blockchain with
 cast call --rpc-url $RPC_PROVIDER --private-key $PRIVATE_KEY 0x5ecDF773A508262712A785C4233F3752bb9e7417 "getEthValueInUsd()(uint256)"
 ```
 
-#### 2. Banking
+#### [2. Banking](https://sepolia.etherscan.io/address/0x4D1770D66b50d0128d22933DCf8FcF3a594d4eC8)
 It's an example of a smart contract capable of both receiving and withdrawing tokens, essentially mimicking the basic functionalities of a bank.
 
 Balance:
 ```shell
-cast call --rpc-url $RPC_PROVIDER --private-key $PRIVATE_KEY_2 0x4D1770D66b50d0128d22933DCf8FcF3a594d4eC8 "balance()(uint256)"
+cast call --rpc-url $RPC_PROVIDER --private-key $PRIVATE_KEY 0x4D1770D66b50d0128d22933DCf8FcF3a594d4eC8 "balance()(uint256)"
 ```
 
 Withdraw:
 ```shell
-cast send --rpc-url $RPC_PROVIDER --private-key $PRIVATE_KEY_2 0x4D1770D66b50d0128d22933DCf8FcF3a594d4eC8 "withdraw(uint256)()" <value>
+cast send --rpc-url $RPC_PROVIDER --private-key $PRIVATE_KEY 0x4D1770D66b50d0128d22933DCf8FcF3a594d4eC8 "withdraw(uint256)()" <value>
 ```
 
 ## Foundry
