@@ -12,6 +12,16 @@ cast call --rpc-url $RPC_PROVIDER --private-key $PRIVATE_KEY 0x5ecDF773A50826271
 #### 2. Banking
 It's an example of a smart contract capable of both receiving and withdrawing tokens, essentially mimicking the basic functionalities of a bank.
 
+Balance:
+```shell
+cast call --rpc-url $RPC_PROVIDER --private-key $PRIVATE_KEY_2 0x4D1770D66b50d0128d22933DCf8FcF3a594d4eC8 "balance()(uint256)"
+```
+
+Withdraw:
+```shell
+cast send --rpc-url $RPC_PROVIDER --private-key $PRIVATE_KEY_2 0x4D1770D66b50d0128d22933DCf8FcF3a594d4eC8 "withdraw(uint256)()" <value>
+```
+
 ## Foundry
 
 **Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
