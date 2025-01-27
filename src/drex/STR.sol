@@ -1,6 +1,6 @@
 pragma solidity ^0.8.19;
 
-// Sistema de Transferência de Reservas
+// Reserve Transfer System
 contract STR {
     
     RealDigital realDigitalContract;
