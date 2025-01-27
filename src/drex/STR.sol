@@ -1,5 +1,7 @@
 pragma solidity ^0.8.19;
 
+import {RealDigital} from "./RealDigital.sol";
+
 // Reserve Transfer System
 contract STR {
     
