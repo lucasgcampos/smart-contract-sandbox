@@ -10,10 +10,10 @@ contract RealDigitalTest is Test {
 
     function setUp() public {
         vm.prank(deployer);
-        realDigital = new RealDigital();
+        realDigital = new RealDigital(deployer);
     }
 
     function test_inital_balance_of_deployer() public {
-        assertEq(realDigital.balanceOf(deployer), 1000 * 100);
+        assertEq(realDigital.balanceOf(deployer), 0);
     }
 }
