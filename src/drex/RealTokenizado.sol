@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract RealTokenizado is ERC20 {
 
-    address owner;
+    address public owner;
 
     constructor(
         string memory _name, 
