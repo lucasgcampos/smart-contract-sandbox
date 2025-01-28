@@ -38,13 +38,8 @@ contract RealDigital is ERC20 {
     }
 
     function transferSwap(address _from, address _to, uint _amount) external onlySwap {
-        require(balanceOf[_from] >= amount, "ERC20: transfer amount exceeds balance");
-        
-        unchecked {
-            balanceOf[_from] -= amount;
-            balanceOf[_to] += amount;
-        }
-
-        emit Swap(from, to, amount);
+        _transfer(_from, _to, _amount);
+        emit Swap(_from, _to, _amount);
     }
+
 }
