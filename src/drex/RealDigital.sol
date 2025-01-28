@@ -5,14 +5,23 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract RealDigital is ERC20 {
 
-    address str;
+    address public str;
+    address public swap;
 
-    constructor(address _str) ERC20("Real Digital", "RD") {
+    event Swap(address indexed from, address indexed to, uint amount);
+
+    constructor(address _str, address _swap) ERC20("Real Digital", "RD") {
         str = _str;
+        swap = _swap;
     }
 
     modifier onlySTR {
         require(msg.sender == str, "Unauthorized");
+        _;
+    }
+    
+    modifier onlySwap {
+        require(msg.sender == swap, "Unauthorized");
         _;
     }
 
@@ -20,11 +29,22 @@ contract RealDigital is ERC20 {
         _mint(_participant, _amount);
     }
 
-    function burnFrom(address _participant, uint _amount) external onlySTR {
+    function burn(address _participant, uint _amount) external onlySTR {
         _burn(_participant, _amount);
     }
 
     function decimals() public view virtual override returns (uint8) {
         return 2;
+    }
+
+    function transferSwap(address _from, address _to, uint _amount) external onlySwap {
+        require(balanceOf[_from] >= amount, "ERC20: transfer amount exceeds balance");
+        
+        unchecked {
+            balanceOf[_from] -= amount;
+            balanceOf[_to] += amount;
+        }
+
+        emit Swap(from, to, amount);
     }
 }
