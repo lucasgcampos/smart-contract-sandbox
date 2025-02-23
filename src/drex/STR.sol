@@ -9,9 +9,12 @@ contract STR {
     RealDigital public realDigitalContract;
     address[] public participants;
 
-    constructor(address _realDigitalContract) {
+    constructor(address _realDigitalContract, address[] memory _participants) {
         realDigitalContract = RealDigital(_realDigitalContract);
-        participants.push(msg.sender);
+
+        for (uint i = 0; i < _participants.length; i++) {
+            participants.push(_participants[i]);
+        }
     }
 
     modifier onlyParticipant {
@@ -19,10 +22,13 @@ contract STR {
         for (uint32 i = 0; i < participants.length; i++) {
             if (msg.sender != participants[i]) {
                 isParticipant = true;
+                break;
             }
         }
-
-        require(isParticipant, "Unauthorized");
+        
+        if (!isParticipant) {
+            revert Unauthorized(msg.sender);
+        }
         _;
     }
 
