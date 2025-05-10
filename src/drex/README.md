@@ -23,7 +23,7 @@ The project is composed of three main components:
 
 Below is a diagram showing the token flow between banks:
 
-![Drex sample](./diagram.png)
+![Drex sample](diagram.png)
 
 ## 🧱 Technical Components
 
