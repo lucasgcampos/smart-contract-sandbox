@@ -19,6 +19,12 @@ The project is composed of three main components:
    - Calls `mint()` of the Black Token to Alice’s account at Black Bank.
 4. The transfer is completed securely and transparently.
 
+## 🖼️ Diagram
+
+Below is a diagram showing the token flow between banks:
+
+![Drex sample](./diagram.png)
+
 ## 🧱 Technical Components
 
 - **Smart Contracts**:
