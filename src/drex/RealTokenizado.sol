@@ -27,7 +27,7 @@ contract RealTokenizado is ERC20 {
         if (msg.sender != owner && msg.sender != swap) {
             revert Unauthorized(msg.sender, owner);
         }
-        require(msg.sender == owner, "Unauthorized");
+        
         _;
     }
 
