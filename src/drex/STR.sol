@@ -3,9 +3,11 @@ pragma solidity ^0.8.19;
 
 import {RealDigital} from "./RealDigital.sol";
 
+error Unauthorized(address);
+
 // Reserve Transfer System
 contract STR {
-    
+
     RealDigital public realDigitalContract;
     address[] public participants;
 

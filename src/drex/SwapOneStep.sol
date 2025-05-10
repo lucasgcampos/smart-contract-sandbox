@@ -8,8 +8,10 @@ contract SwapOneStep {
 
     address[] participants;
 
-    constructor() {
-        participants.push(msg.sender);
+    constructor(address _realDigitalContract, address[] memory _participants) {
+        for (uint i = 0; i < _participants.length; i++) {
+            participants.push(_participants[i]);
+        }
     }
 
     modifier onlyParticipant {

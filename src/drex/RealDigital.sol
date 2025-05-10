@@ -6,22 +6,36 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 contract RealDigital is ERC20 {
 
     address public str;
+    address public bacen;
     address public swap;
 
     event Swap(address indexed from, address indexed to, uint amount);
 
-    constructor(address _str, address _swap) ERC20("Real Digital", "RD") {
-        str = _str;
-        swap = _swap;
+    error Unauthorized(address sender, address owner);
+
+    constructor() ERC20("Real Digital", "RD") {
+        bacen = msg.sender;
     }
 
     modifier onlySTR {
-        require(msg.sender == str, "Unauthorized");
+        if (msg.sender != str) {
+            revert Unauthorized(msg.sender, str);
+        }
+    
         _;
     }
     
     modifier onlySwap {
-        require(msg.sender == swap, "Unauthorized");
+        if (msg.sender != swap) {
+            revert Unauthorized(msg.sender, swap);
+        }
+        _;
+    }
+    
+    modifier onlyBacen {
+        if (msg.sender != bacen) {
+            revert Unauthorized(msg.sender, bacen);
+        }
         _;
     }
 
@@ -42,4 +56,11 @@ contract RealDigital is ERC20 {
         emit Swap(_from, _to, _amount);
     }
 
+    function setSTR(address _str) public onlyBacen {
+        str = _str;
+    }
+    
+    function setSwap(address _swap) public onlyBacen {
+        swap = _swap;
+    }
 }
